@@ -116,8 +116,7 @@ int generateRandomAnt() {
     for (int i = 1; i <= 100; ++i) {
         numbers.push_back(i);
     }
-    random_device rd;
-    mt19937 gen(rd());
+    mt19937 gen(std::random_device{}());
     shuffle(numbers.begin(), numbers.end(), gen);
     return numbers[0];
 }
@@ -232,8 +231,7 @@ pair<int, int> getRandomAdjacentPoint(int y, int x) {
             {0, -1},           {0, 1},
             {1, -1},  {1, 0},  {1, 1}
     };
-    random_device rd;
-    mt19937 gen(rd());
+    mt19937 gen(std::random_device{}());
     shuffle(&offsets[0][0], &offsets[7][2], gen);
     int adjacentY = y + offsets[0][0];
     int adjacentX = x + offsets[0][1];

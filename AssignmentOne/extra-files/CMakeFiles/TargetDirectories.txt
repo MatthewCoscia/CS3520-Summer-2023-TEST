@@ -1,8 +1,0 @@
-C:/Users/kimpe/CLionProjects/AssignmentOne/cmake-build-debug/CMakeFiles/file1.dir
-C:/Users/kimpe/CLionProjects/AssignmentOne/cmake-build-debug/CMakeFiles/compoundinterest.dir
-C:/Users/kimpe/CLionProjects/AssignmentOne/cmake-build-debug/CMakeFiles/statsfromparagraph.dir
-C:/Users/kimpe/CLionProjects/AssignmentOne/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/kimpe/CLionProjects/AssignmentOne/cmake-build-debug/CMakeFiles/findandreplace.dir
-C:/Users/kimpe/CLionProjects/AssignmentOne/cmake-build-debug/CMakeFiles/file2.dir
-C:/Users/kimpe/CLionProjects/AssignmentOne/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/kimpe/CLionProjects/AssignmentOne/cmake-build-debug/CMakeFiles/file3.dir

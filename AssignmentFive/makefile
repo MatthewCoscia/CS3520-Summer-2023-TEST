@@ -4,12 +4,12 @@ CFLAGS= -I$(IDIR) -g -O0 -std=c++11
 
 ODIR=.
 
-LIBS=-lncurses
+LIBS=-lncurses -lstdc++
 
 _DEPS = 
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o classes.o model.o
+_OBJ = main.o model.o classes.o 
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: %.cpp $(DEPS)
