@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/kimpe/CLionProjects/practiceactivity4/main.cpp
+iostream
+-
+fstream
+-
+vector
+-
+bits/stdc++.h
+-
+

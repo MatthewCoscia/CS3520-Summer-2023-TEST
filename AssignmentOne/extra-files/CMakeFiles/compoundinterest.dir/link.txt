@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\compoundinterest.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\compoundinterest.dir/objects.a @CMakeFiles\compoundinterest.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\compoundinterest.dir/objects.a -Wl,--no-whole-archive -o compoundinterest.exe -Wl,--out-implib,libcompoundinterest.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\compoundinterest.dir\linklibs.rsp

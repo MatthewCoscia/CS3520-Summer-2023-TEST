@@ -1,0 +1,23 @@
+Customer        DeliveryPerson           Order
+   |                |                   |
+   |    place       |                   |
+   |   order        |                   |
+   |--------------->|                   |
+   |                |   assign          |
+   |                |  delivery person |
+   |                |-----------------> |
+   |                |                   |
+   |                |   update          |
+   |                |   order status    |
+   |                |-----------------> |
+   |                |                   |
+   |                |                   |   update delivery status
+   |                |                   |<---------------- |
+   |                |                   |
+   |                |                   |   update order status
+   |                |                   |<---------------- |
+   |                |                   |
+   |                |                   |   notify customer
+   |                |                   |----------------> |
+   |                |                   |
+

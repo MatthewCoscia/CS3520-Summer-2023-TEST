@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\statsfromparagraph.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\statsfromparagraph.dir/objects.a @CMakeFiles\statsfromparagraph.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\statsfromparagraph.dir/objects.a -Wl,--no-whole-archive -o statsfromparagraph.exe -Wl,--out-implib,libstatsfromparagraph.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\statsfromparagraph.dir\linklibs.rsp

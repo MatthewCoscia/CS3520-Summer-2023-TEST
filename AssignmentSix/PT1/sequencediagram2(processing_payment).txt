@@ -1,0 +1,20 @@
+Customer          Payment              Order
+   |                |                   |
+   |   initiate     |                   |
+   |  payment       |                   |
+   |--------------->|                   |
+   |                |   validate        |
+   |                |  payment details |
+   |                |-----------------> |
+   |                |                   |
+   |                |   process         |
+   |                |    payment        |
+   |                |-----------------> |
+   |                |                   |
+   |                |                   |   update payment status
+   |                |                   |<---------------- |
+   |                |                   |
+   |                |                   |   notify customer
+   |                |                   |----------------> |
+   |                |                   |
+

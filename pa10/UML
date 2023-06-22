@@ -1,0 +1,30 @@
++---------------------------------+
+|             Group               |
++---------------------------------+
+| - name: string                  |
+| - groupNumber: int              |
+| - focusArea: string             |
+| - employees: vector<Employee>   |
++---------------------------------+
+| + Group(name: string, groupNumber: int, focusArea: string) |
+| + addEmployee(employee: Employee): void                    |
+| + removeEmployee(index: int): void                         |
+| + mergeWithGroup(otherGroup: Group): void                  |
+| + removeXEmployees(x: int): void                           |
+| + getGroupNumber(): int                                    |
++---------------------------------+
+
+		|
+		|
+		v
++---------------------------------+
+|            Employee             |
++---------------------------------+
+| - name: string                  |
+| - email: string                 |
+| - designation: string           |
+| - groupId: int                  |
++---------------------------------+
+| + Employee(name: string, email: string, designation: string, groupId: int) |
+| + getGroupId(): int  
++---------------------------------+               
