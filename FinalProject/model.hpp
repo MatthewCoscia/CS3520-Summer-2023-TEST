@@ -13,6 +13,10 @@ void makeReservation(std::string username, std::string day, std::string time, st
 void deleteReservation(std::string username, std::string day, std::string time, std::string court);
 void cancelLesson(std::string username, std::string day, std::string time, std::string court);
 void checkCoachingReservations(std::string username);
+void createOpenPlayTime(std::string rank, std::string day, std::string time, std::string court);
+void deleteOpenPlayTime(std::string day, std::string time, std::string court);
+void joinOpenPlayTime(std::string day, std::string time, std::string court);
+void getOpenPlayTimes();
 void createLesson(std::string username, std::string day, std::string time, std::string court);
 extern User* user;
 void printSchedule();

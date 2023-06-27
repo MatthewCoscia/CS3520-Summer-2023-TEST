@@ -8,18 +8,6 @@
 #include <string>
 #include <map>
 
-class Facility {
-
-};
-
-class Court {
-
-};
-
-class DateTime {
-
-};
-
 class Reservation {
 public:
     std::string day;
@@ -39,7 +27,7 @@ public:
     bool signedIn = false;
     virtual std::string getSymbol() = 0;
     virtual void setSkillLevel(char skill) = 0;
-    std::map<DateTime, Reservation> reservations;
+    virtual std::string getSkillLevel() = 0;
     virtual ~User() {}
 };
 
@@ -47,6 +35,7 @@ class ClubMember : public User {
 public:
     char skillLevel;
     void setSkillLevel(char skill) override;
+    std::string getSkillLevel() override;
     std::string symbol = "CM";
     std::string getSymbol() override;
 };
@@ -55,6 +44,7 @@ class ClubOfficer : public User {
 public:
     std::string symbol = "CO";
     void setSkillLevel(char skill) override;
+    std::string getSkillLevel() override;
     std::string getSymbol() override;
 };
 
@@ -62,18 +52,15 @@ class ClubCoach : public User {
 public:
     std::string symbol = "CC";
     void setSkillLevel(char skill) override;
+    std::string getSkillLevel() override;
     std::string getSymbol() override;
 };
 
 class Empty : public User {
     std::string symbol = "X";
     void setSkillLevel(char skill) override;
+    std::string getSkillLevel() override;
     std::string getSymbol() override;
-};
-
-class DataHolder {
-public:
-    std::string signInLine;
 };
 
 #endif //FINALPROJECT_CLASSES_HPP

@@ -47,6 +47,10 @@ int main() {
     cout << "'make-lesson': is only available for coaches, and will allow you to create a lesson reservation" << endl;
     cout << "'delete-lesson': is only available for coaches, and will allow you to delete a lesson reservation" << endl;
     cout << "'check-coaching-reservations': is only available for coaches, and will allow you to check your current lessons." << endl;
+    cout << "'create-open-play': is only available to officers, and will allow members of a certain rank to play." << endl;
+    cout << "'get-open-play-times': allows everyone to see when the open plays are available." << endl;
+    cout << "'cancel-open-play-time': allows officers to cancel open play times." << endl;
+    cout << "'join-open-play-time': allows members to join open play times." << endl;
     cout << "Type exit to quit" << endl;
     cin >> command;
     while (command != "exit") {
@@ -119,6 +123,63 @@ int main() {
                 cout << "You are not a coach, and cannot make a lesson" << endl;
             }
         }
+        if (command == "create-open-play") {
+            if (user->getSymbol() == "CO") {
+                cout << "What day? (Monday-Sunday)" << endl;
+                string day;
+                cin >> day;
+                cout << "What time? (06:00 to 23:30)" << endl;
+                string time;
+                cin >> time;
+                cout << "What Court? (Court-1, Court-2, or Court-3)" << endl;
+                string court;
+                cin >> court;
+                string rank;
+                cout << "For what Rank? (A, B, or C)" << endl;
+                cin >> rank;
+                createOpenPlayTime(rank, day, time, court);
+            }
+            else {
+                cout << "You are not an officer, you cannot create open-play times" << endl;
+            }
+        }
+        if (command == "get-open-play-times") {
+            getOpenPlayTimes();
+        }
+        if (command == "cancel-open-play-time") {
+            if (user->getSymbol() == "CO") {
+                cout << "What day? (Monday-Sunday)" << endl;
+                string day;
+                cin >> day;
+                cout << "What time? (06:00 to 23:30)" << endl;
+                string time;
+                cin >> time;
+                cout << "What Court? (Court-1, Court-2, or Court-3)" << endl;
+                string court;
+                cin >> court;
+                deleteOpenPlayTime(day, time, court);
+            }
+            else {
+                cout << "You are not an officer, you cannot delete an open-play time." << endl;
+            }
+        }
+        if (command == "join-open-play-time") {
+            if (user->getSymbol() == "CM") {
+                cout << "What day? (Monday-Sunday)" << endl;
+                string day;
+                cin >> day;
+                cout << "What time? (06:00 to 23:30)" << endl;
+                string time;
+                cin >> time;
+                cout << "What Court? (Court-1, Court-2, or Court-3)" << endl;
+                string court;
+                cin >> court;
+                joinOpenPlayTime(day, time, court);
+            }
+            else {
+                cout << "Sorry, this is only available for Club Members" << endl;
+            }
+        }
         cout << "\n";
         cout << "'schedule': to view the upcoming schedule for each court this week (Press Q to exit)" << endl;
         cout << "'check-reservations': to view the days when you are registered for." << endl;
@@ -127,6 +188,10 @@ int main() {
         cout << "'make-lesson': is only available for coaches, and will allow you to create a lesson reservation" << endl;
         cout << "'delete-lesson': is only available for coaches, and will allow you to delete a lesson reservation" << endl;
         cout << "'check-coaching-reservations': is only available for coaches, and will allow you to check your current lessons." << endl;
+        cout << "'create-open-play': is only available to officers, and will allow members of a certain rank to play." << endl;
+        cout << "'get-open-play-times': allows everyone to see when the open plays are available." << endl;
+        cout << "'cancel-open-play-time': allows officers to cancel open play times." << endl;
+        cout << "'join-open-play-time': allows members to join open play times." << endl;
         cout << "Type exit to quit" << endl;
         cin >> command;
     }

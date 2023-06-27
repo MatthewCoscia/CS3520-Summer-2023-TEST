@@ -436,6 +436,167 @@ void checkReservations(string username) {
     }
 }
 
+void joinOpenPlayTime(string day, string time, string court) {
+    ifstream file("reservations.csv");
+    string line;
+    string backupLines = "";
+    Reservation final;
+    string finalLine;
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            Reservation temp = makeReservationFromLine(line);
+            vector<string> openPlayReserved = splitString(temp.reservedBy, ':');
+            for (string s: openPlayReserved) {
+                if (s == "OPENPLAY-RANK") {
+                    finalLine = line;
+                    final = temp;
+                }
+            }
+        }
+        file.close();
+    }
+    vector<string> openPlayReserved = splitString(final.reservedBy, ': ');
+    bool somethingDone = false;
+    for (string s : openPlayReserved) {
+        if (user->getSymbol() == "CM") {
+            if (user->getSkillLevel() == s) {
+                somethingDone = true;
+            }
+        }
+    }
+    if (somethingDone) {
+        cout << "You have joined this open-play reservation, have fun!";
+    }
+    else {
+        cout << "Your skill level is not for this session" << endl;
+    }
+
+}
+
+void deleteOpenPlayTime(string day, string time, string court) {
+    ifstream file("reservations.csv");
+    string line;
+    string backupLines = "";
+    Reservation final;
+    string finalLine;
+    int lineCounter = 0;
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            backupLines += line + "\n";
+            Reservation temp = makeReservationFromLine(line);
+            if (temp.time == time && temp.day == day && temp.court == court) {
+                finalLine = line;
+                final = temp;
+            }
+            lineCounter++;
+        }
+        file.close();
+    }
+    bool somethingDone = false;
+    string newRes;
+    vector<string> openPlayReserved = splitString(final.reservedBy, ':');
+    for (string s : openPlayReserved) {
+        if (s == "OPENPLAY-RANK") {
+            somethingDone = true;
+        }
+    }
+    newRes = final.day + "," + final.time + "," + final.court + "," + "OPEN";
+    if (somethingDone) {
+        size_t pos = backupLines.find(finalLine);
+        if (pos != string::npos) {
+            backupLines.replace(pos, finalLine.length(), newRes);
+        }
+        cout << "Your openplay for this time has been deleted." << endl;
+        ofstream fileWrite("reservations.csv", ios::trunc);
+        if (fileWrite.is_open()) {
+            fileWrite.close();
+        }
+        ofstream fileWrite2("reservations.csv", ios::app);
+        if (fileWrite2.is_open()) {
+            fileWrite2 << backupLines;
+            fileWrite2.close();
+        }
+    }
+    if (!somethingDone) {
+        cout << "Your openplay session could not be deleted." << endl;
+    }
+
+
+}
+
+void getOpenPlayTimes() {
+    ifstream file("reservations.csv");
+    string line;
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            Reservation temp = makeReservationFromLine(line);
+            vector<string> openPlayReserved = splitString(temp.reservedBy, ':');
+            for (string s: openPlayReserved) {
+                if (s == "OPENPLAY-RANK") {
+                    temp.print();
+                }
+            }
+        }
+        file.close();
+    }
+}
+
+void createOpenPlayTime(string rank, string day, string time, string court) {
+    ifstream file("reservations.csv");
+    string line;
+    string backupLines = "";
+    Reservation final;
+    string finalLine;
+    int lineCounter = 0;
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            backupLines += line + "\n";
+            Reservation temp = makeReservationFromLine(line);
+            if (temp.time == time && temp.day == day && temp.court == court) {
+                finalLine = line;
+                final = temp;
+            }
+            lineCounter++;
+        }
+        file.close();
+    }
+    vector<string> possibleTimes = {"18:00", "18:30", "19:00", "19:30", "20:00", "20:30"};
+    bool correctTime = false;
+    bool somethingDone = false;
+    string newRes;
+    for (string s : possibleTimes) {
+        if (time == s) {
+            correctTime = true;
+        }
+    }
+    if (correctTime) {
+        if (final.reservedBy == "OPEN") {
+            somethingDone = true;
+        }
+    }
+    if (somethingDone) {
+        newRes = final.day + "," + final.time + "," + final.court + "," + "OPENPLAY-RANK: " + rank;
+        size_t pos = backupLines.find(finalLine);
+        if (pos != string::npos) {
+            backupLines.replace(pos, finalLine.length(), newRes);
+        }
+        cout << "The Open Play time has been created." << endl;
+        ofstream fileWrite("reservations.csv", ios::trunc);
+        if (fileWrite.is_open()) {
+            fileWrite.close();
+        }
+        ofstream fileWrite2("reservations.csv", ios::app);
+        if (fileWrite2.is_open()) {
+            fileWrite2 << backupLines;
+            fileWrite2.close();
+        }
+    }
+    else {
+        cout << "The Open Play time could not be created" << endl;
+    }
+
+}
+
 void checkCoachingReservations(string username) {
     ifstream file("reservations.csv");
     string line;
