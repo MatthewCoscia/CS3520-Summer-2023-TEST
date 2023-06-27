@@ -1,0 +1,31 @@
+    +---------------------+
+    |        User         |
+    +---------------------+
+    | - username: string  |
+    | - membership: string|
+    | - signedIn: bool    |
+    +---------------------+
+    | + getSymbol(): string|
+    | + setSkillLevel(skill: char): void |
+    | + getSkillLevel(): string |
+    +---------------------+
+          ▲         ▲
+          |         |
+    +-------------+   |
+    | ClubMember  |   |
+    +-------------+   |
+    | - skillLevel|   |
+    +-------------+   |
+                     |
+    +-------------+   |
+    |  ClubCoach  |   |
+    +-------------+   |
+                     |
+    +-----------------+
+    |  ClubOfficer    |
+    +-----------------+
+                     |
+    +-----------------+
+    |     Empty       |
+    +-----------------+
+
