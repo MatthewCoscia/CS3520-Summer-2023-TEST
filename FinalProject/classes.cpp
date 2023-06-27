@@ -40,13 +40,13 @@ void ClubMember::setSkillLevel(char skill) {
 
 std::string ClubMember::getSkillLevel() {
     if (skillLevel == 'A') {
-        return "A";
+        return " A";
     }
     if (skillLevel == 'B') {
-        return "B";
+        return " B";
     }
     if (skillLevel == 'C') {
-        return "C";
+        return " C";
     }
     else {
         return "";

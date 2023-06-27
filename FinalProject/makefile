@@ -1,11 +1,6 @@
 IDIR =../include
 CC=g++
 CFLAGS= -I$(IDIR) -g -O0 -std=c++11
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wmultichar"
-#pragma GCC diagnostic ignored "-Woverflow"
-#pragma GCC diagnostic pop
-
 
 ODIR=.
 

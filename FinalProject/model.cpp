@@ -455,7 +455,7 @@ void joinOpenPlayTime(string day, string time, string court) {
         }
         file.close();
     }
-    vector<string> openPlayReserved = splitString(final.reservedBy, ': ');
+    vector<string> openPlayReserved = splitString(final.reservedBy, ':');
     bool somethingDone = false;
     for (string s : openPlayReserved) {
         if (user->getSymbol() == "CM") {
